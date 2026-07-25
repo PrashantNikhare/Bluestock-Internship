@@ -3,41 +3,29 @@ import os
 
 folder = "data/raw"
 
-files = [f for f in os.listdir(folder) if f.endswith(".csv")]
+files = os.listdir(folder)
 
 for file in files:
 
-    print("="*70)
-    print(f"Dataset : {file}")
-    print("="*70)
+    if file.endswith(".csv"):
 
-    df = pd.read_csv(os.path.join(folder, file))
+        print("\nFile Name :", file)
 
-    print("\nShape")
-    print(df.shape)
+        path = os.path.join(folder, file)
 
-    print("\nColumns")
-    print(df.columns.tolist())
+        df = pd.read_csv(path)
 
-    print("\nData Types")
-    print(df.dtypes)
+        print("Shape :", df.shape)
+        print("Columns :", df.columns)
+        print("Data Types")
+        print(df.dtypes)
 
-    print("\nFirst 5 Rows")
-    print(df.head())
+        print("\nFirst 5 Rows")
+        print(df.head())
 
-    print("\nMissing Values")
-    print(df.isnull().sum())
-
-    print("\nDuplicate Rows")
-    print(df.duplicated().sum())
-
-    print("\nSummary Statistics")
-    print(df.describe())
-
-    print("\nCategorical Summary")
-    print(df.describe(include="object"))
-
-    try:
-        df = pd.read_csv(os.path.join(folder, file))
-    except Exception as e:
-        print(f"Error reading {file}: {e}")
+        print("\nMissing Values")
+        print(df.isnull().sum())
+        print("\nColumns") 
+        print(df.columns.tolist())
+        print("\nDuplicate Rows") 
+        print(df.duplicated().sum())
