@@ -1,28 +1,41 @@
-# Mutual Fund Analytics
+# Bluestock Fintech Internship
 
-This project is a part of my Data Analytics Internship at Bluestock Fintech.
+## Day 1 - Data Ingestion & Validation
+
+### Completed Tasks
+
+- Created project folder structure
+- Initialized Git repository
+- Installed required Python libraries
+- Created requirements.txt
+- Loaded all provided CSV datasets
+- Performed basic data exploration
+- Fetched live NAV data from MFAPI
+- Explored Fund Master dataset
+- Validated AMFI codes with NAV History
+- Prepared Data Quality Summary
 
 ## Project Structure
 
-- data/raw
-- data/processed
-- notebooks
-- sql
-- dashboard
-- reports
+Bluestock Project/
+│
+├── data/
+│ ├── raw/
+│ └── processed/
+├── dashboard/
+├── notebooks/
+├── reports/
+├── sql/
+├── data_ingestion.py
+├── live_nav_fetch.py
+├── fund_master_analysis.py
+├── amfi_validation.py
+├── requirements.txt
+└── README.md
 
-## Tools Used
+## Technologies Used
 
 - Python
 - Pandas
 - Requests
 - Git
-- GitHub
-
-## Day 1 Tasks Completed
-
-- Created project folder structure
-- Installed required libraries
-- Loaded CSV files using Pandas
-- Fetched live NAV data from MFAPI
-- Saved API response as CSV
