@@ -1,0 +1,217 @@
+-- use bluestock_db;
+-- show tables;
+-- --------select------------------------
+-- select *
+-- from fund_master
+-- --------------------limit-----------------------
+-- select * from fund_master
+-- LIMIT 10;
+-- ----------- specific columns------------------------
+-- select amfi_code,
+-- fund_house,
+-- scheme_name,
+-- category
+-- from fund_master
+-- limit 5;
+-- ----------------where clause----------------
+-- select * 
+-- From fund_master
+-- where category = "equity";
+-- ------------Do Conditions------------------
+-- select scheme_name,fund_house,risk_category
+-- from fund_master
+-- where risk_category = "very high"; 
+-- -------- Number Conditions-----------------
+-- select scheme_name,
+-- expense_ratio_pct
+-- from fund_master
+-- where expense_ratio_pct > 1;
+-- -----------Order By----------------------------
+-- select Scheme_name,expense_ratio_pct
+-- from fund_master
+-- order by expense_ratio_pct;
+-- -------Order by Descending--------------
+-- select Scheme_name,Expense_ratio_pct
+-- from fund_master
+-- order by expense_ratio_pct desc;
+-- select Scheme_name,expense_ratio_pct
+-- from fund_master
+-- order by expense_ratio_pct desc
+-- limit 5;
+-- ------------oeder by Oldest to Newest----------------------
+-- select Scheme_name, launch_date
+-- From fund_master
+-- order by launch_date;
+-- -----------------Group By--------------------
+-- select fund_house,
+-- count(*)as total_Scheme
+-- from fund_master
+-- GROUP BY Fund_house;
+-- select category,
+-- count(*)as Total_Scheme
+-- from fund_master
+-- group by category;
+-- select risk_category,
+-- count(*)as Total_funds
+-- from fund_master
+-- group by risk_category;
+-- -------------Total Investment--------------------
+-- select
+-- SUM(amount_inr) AS total_investment
+-- From investor_transactions;
+-- -----------Average Investment------------
+-- select
+-- avg(amount_inr) as average_investment
+-- from investor_transactions;
+-- -------------Minimum Investment-----------
+-- select min(amount_inr) as minimum_investment
+-- from investor_transactions;
+-- -----------Maximum Trasaction------------------
+-- select max(amount_inr) as maximum_investment from investor_transactions;
+-- --------State Wise Total Investment-----------------------
+-- select state,
+-- sum(amount_inr) as total_investment
+-- from investor_transactions
+-- group by state;
+-- select state,
+-- sum(amount_inr) as total_investment
+-- from investor_transactions
+-- group by state
+-- order by total_investment desc
+-- limit 5;
+-- ------------------ Where-----------------
+-- select * from fund_master where category = "equity";
+-- ----------   HAving-----------------
+-- select fund_house,
+-- count(*) As total_schemes from fund_master group by fund_house
+-- having count(*) >= 4;
+
+-- SELECT
+-- category,
+-- AVG(expense_ratio_pct) AS avg_expense
+-- FROM fund_master
+-- GROUP BY category
+-- HAVING AVG(expense_ratio_pct) > 1;
+-- SELECT
+-- state,SUM(amount_inr) AS total_investment
+-- FROM investor_transactions GROUP BY state
+-- HAVING SUM(amount_inr) > 50000000;
+
+-- ---------Inner join------------------
+-- select 
+-- fm.scheme_name,fm.fund_house,nh.nav_date,nh.nav
+-- from fund_master AS fm
+-- inner join nav_history as nh
+-- on fm.amfi_code = nh.amfi_code;
+
+
+--  SELECT
+-- fm.scheme_name,
+-- fm.fund_house,
+-- nh.date,
+-- nh.nav
+-- FROM fund_master AS fm
+-- INNER JOIN nav_history AS nh
+-- ON fm.amfi_code = nh.amfi_code;
+
+-- select * from nav_history;
+-- describe nav_history;
+-- ----------Left Join------------
+-- select fm.scheme_name, fm.fund_house,nh.date,nh.nav
+-- from fund_master as fm
+-- left join nav_history as nh
+-- on fm.amfi_code = nh.amfi_code
+-- where nh.amfi_code is null;
+
+-- ----------------subquery-------------------
+-- select scheme_name,expense_ratio_pct
+-- from fund_master
+-- where expense_ratio_pct = (select max(expense_ratio_pct) from fund_master);
+-- -- -----Query 2-----------
+-- select scheme_name,expense_ratio_pct
+-- from fund_master
+-- where expense_ratio_pct > 
+-- ( select avg(expense_ratio_pct) 
+-- from fund_master);
+
+-- query 3 Highest Investment-----------
+-- select *
+-- from investor_transactions
+-- where amount_inr = 
+-- ( select max(amount_inr)
+-- from investor_transactions); 
+
+-- --------Windows Function ------------
+-- ---------Row Number---------------
+-- select Scheme_name,
+-- expense_ratio_pct,
+-- row_number() over(order by expense_ratio_pct desc) as Row_num
+-- from fund_master;
+-- -----------Rank()-------------------
+-- select Scheme_name,expense_ratio_pct,
+-- rank() over(order by expense_ratio_pct desc) as rank_no
+-- from fund_master;
+-- ---------Dense Rank--------------------
+-- select Scheme_name,expense_ratio_pct,
+-- dense_rank() over(order by expense_ratio_pct desc) as Dense_Rank_no
+-- from fund_master;
+
+-- Business query
+-- select fund_house,sum(aum_crore)as total_aum
+-- from aum_by_fund_house
+-- group by fund_house
+-- order by total_aum desc
+-- -- limit 5;
+-- ------------Category Wise Number of Schemes-----------
+-- select category,
+-- count(*) as total_schemes
+-- from fund_master
+-- group by category;
+-- select category, avg(expense_ratio_pct) as Average_expense
+-- from fund_master
+-- group by category;
+
+-- SELECT
+-- amfi_code,
+-- date,
+-- nav
+-- FROM nav_history
+-- ORDER BY nav DESC
+-- LIMIT 10;
+
+-- SELECT
+-- state,
+-- SUM(amount_inr) AS total_investment
+-- FROM investor_transactions
+-- GROUP BY state
+-- ORDER BY total_investment DESC;
+
+-- SELECT
+-- transaction_type,
+-- COUNT(*) AS total_transactions
+-- FROM investor_transactions
+-- GROUP BY transaction_type;
+
+-- SELECT
+-- kyc_status,
+-- COUNT(*) AS total_investors
+-- FROM investor_transactions
+-- GROUP BY kyc_status;
+
+-- select age_group,
+-- avg(amount_inr) as total_investment
+-- from investor_transactions
+-- group by age_group
+-- order by total_investment desc;
+
+-- select * from investor_transactions;
+-- select city, sum(amount_inr) as total_investment
+-- from investor_transactions
+-- group by city
+-- order by total_investment desc
+-- limit 5;
+
+-- select scheme_name, expense_ratio_pct
+-- from fund_master
+-- where expense_ratio_pct > 1;
+
