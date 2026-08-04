@@ -16,7 +16,7 @@ print("FUND MASTER")
 print("="*60)
 
 print(fund_master.shape)
-print(fund_master.info())
+fund_master.info()
 print(fund_master.head())
 
 print("="*60)
@@ -24,7 +24,7 @@ print("NAV HISTORY")
 print("="*60)
 
 print(nav_history.shape)
-print(nav_history.info())
+nav_history.info()
 print(nav_history.head())
 
 print("\nMissing Values - Fund Master")
@@ -74,8 +74,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "01_category_distribution.png", dpi=300)
 
-plt.show()
-
 plt.close()
 
 plt.figure(figsize=(8,5))
@@ -90,8 +88,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "02_risk_category_distribution.png", dpi=300)
 
-plt.show()
-
 plt.close()
 
 plt.figure(figsize=(6,6))
@@ -105,8 +101,6 @@ plt.ylabel("")
 plt.title("Plan Distribution")
 
 plt.savefig(FIGURES_PATH / "03_plan_distribution.png", dpi=300)
-
-plt.show()
 
 plt.close()
 
@@ -124,8 +118,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "04_fund_houses.png", dpi=300)
 
-plt.show()
-
 plt.close()
 
 plt.figure(figsize=(8,5))
@@ -140,7 +132,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "05_expense_ratio_distribution.png", dpi=300)
 
-plt.show()
 plt.close()
 
 plt.figure(figsize=(8,5))
@@ -155,7 +146,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "06_exit_load_distribution.png", dpi=300)
 
-plt.show()
 plt.close()
 
 plt.figure(figsize=(8,5))
@@ -170,7 +160,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "07_nav_distribution.png", dpi=300)
 
-plt.show()
 plt.close()
 
 nav_history["date"] = pd.to_datetime(nav_history["date"])
@@ -186,8 +175,6 @@ plt.ylabel("Average NAV")
 plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "08_average_nav_trend.png", dpi=300)
-
-plt.show()
 plt.close()
 
 plt.figure(figsize=(12,5))
@@ -209,7 +196,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "09_top_expense_ratio.png", dpi=300)
 
-plt.show()
 plt.close()
 
 plt.figure(figsize=(10,5))
@@ -230,7 +216,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "10_minimum_sip.png", dpi=300)
 
-plt.show()
 plt.close()
 
 plt.figure(figsize=(12,5))
@@ -245,7 +230,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "11_fund_manager_distribution.png", dpi=300)
 
-plt.show()
 plt.close()
 
 plt.figure(figsize=(8,5))
@@ -258,7 +242,6 @@ plt.tight_layout()
 
 plt.savefig(FIGURES_PATH / "12_nav_boxplot.png", dpi=300)
 
-plt.show()
 plt.close()
 
 print("\n" + "="*60)

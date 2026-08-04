@@ -25,7 +25,7 @@ fund_master.to_sql(
     index=False
 )
 
-print("✓ fund_master loaded")
+print(f"✓ fund_master loaded ({len(fund_master)} rows)")
 
 # ===============================
 # Load 02_nav_history
@@ -40,7 +40,7 @@ nav_history.to_sql(
     index=False
 )
 
-print("✓ nav_history loaded")
+print(f"✓ nav_history loaded ({len(nav_history)} rows)")
 
 # ===============================
 # Load 03_aum_by_fund_house
@@ -48,8 +48,7 @@ print("✓ nav_history loaded")
 
 aum_by_fund_house = pd.read_csv(PROCESSED_PATH / "03_aum_by_fund_house_cleaned.csv")
 aum_by_fund_house.to_sql("aum_by_fund_house", engine, if_exists="replace", index=False)
-print("✓ aum_by_fund_house loaded")
-
+print(f"✓ aum_by_fund_house loaded ({len(aum_by_fund_house)} rows)")
 
 # ===============================
 # Load 04_monthly_sip_inflows
@@ -57,8 +56,7 @@ print("✓ aum_by_fund_house loaded")
 
 monthly_sip_inflows = pd.read_csv(PROCESSED_PATH / "04_monthly_sip_inflows_cleaned.csv")
 monthly_sip_inflows.to_sql("monthly_sip_inflows", engine, if_exists="replace", index=False)
-print("✓ monthly_sip_inflows loaded")
-
+print(f"✓ monthly_sip_inflows loaded ({len(monthly_sip_inflows)} rows)")
 
 # ===============================
 # Load 05_category_inflows
@@ -66,8 +64,7 @@ print("✓ monthly_sip_inflows loaded")
 
 category_inflows = pd.read_csv(PROCESSED_PATH / "05_category_inflows_cleaned.csv")
 category_inflows.to_sql("category_inflows", engine, if_exists="replace", index=False)
-print("✓ category_inflows loaded")
-
+print(f"✓ category_inflows loaded ({len(category_inflows)} rows)")
 
 # ===============================
 # Load 06_industry_folio_count
@@ -75,8 +72,7 @@ print("✓ category_inflows loaded")
 
 industry_folio_count = pd.read_csv(PROCESSED_PATH / "06_industry_folio_count_cleaned.csv")
 industry_folio_count.to_sql("industry_folio_count", engine, if_exists="replace", index=False)
-print("✓ industry_folio_count loaded")
-
+print(f"✓ industry_folio_count loaded ({len(industry_folio_count)} rows)")
 
 # ===============================
 # Load 07_scheme_performance
@@ -84,8 +80,7 @@ print("✓ industry_folio_count loaded")
 
 scheme_performance = pd.read_csv(PROCESSED_PATH / "07_scheme_performance_cleaned.csv")
 scheme_performance.to_sql("scheme_performance", engine, if_exists="replace", index=False)
-print("✓ scheme_performance loaded")
-
+print(f"✓ scheme_performance loaded ({len(scheme_performance)} rows)")
 
 # ===============================
 # Load 08_investor_transactions
@@ -93,8 +88,7 @@ print("✓ scheme_performance loaded")
 
 investor_transactions = pd.read_csv(PROCESSED_PATH / "08_investor_transactions_cleaned.csv")
 investor_transactions.to_sql("investor_transactions", engine, if_exists="replace", index=False)
-print("✓ investor_transactions loaded")
-
+print(f"✓ investor_transactions loaded ({len(investor_transactions)} rows)")
 
 # ===============================
 # Load 09_portfolio_holdings
@@ -102,8 +96,7 @@ print("✓ investor_transactions loaded")
 
 portfolio_holdings = pd.read_csv(PROCESSED_PATH / "09_portfolio_holdings_cleaned.csv")
 portfolio_holdings.to_sql("portfolio_holdings", engine, if_exists="replace", index=False)
-print("✓ portfolio_holdings loaded")
-
+print(f"✓ portfolio_holdings loaded ({len(portfolio_holdings)} rows)")
 
 # ===============================
 # Load 10_benchmark_indices
@@ -111,7 +104,6 @@ print("✓ portfolio_holdings loaded")
 
 benchmark_indices = pd.read_csv(PROCESSED_PATH / "10_benchmark_indices_cleaned.csv")
 benchmark_indices.to_sql("benchmark_indices", engine, if_exists="replace", index=False)
-print("✓ benchmark_indices loaded")
-
+print(f"✓ benchmark_indices loaded ({len(benchmark_indices)} rows)")
 
 print("\n🎉 All datasets loaded into SQLite successfully!")

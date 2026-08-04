@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="bluestock_mf.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2553"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="aum_by_fund_house" custom_title="0" dock_id="1" table="4,17:mainaum_by_fund_house"/><dock_state state="000000ff00000000fd0000000100000002000005bb0000038efc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000005bb0000011e00ffffff000002690000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">-- 1. Total Mutual Funds
+SELECT COUNT(*) AS total_funds
+FROM fund_master;
+
+-- 2. Total Fund Houses
+SELECT COUNT(DISTINCT fund_house) AS total_fund_houses
+FROM fund_master;
+
+-- 3. Category-wise Number of Funds
+SELECT
+    category,
+    COUNT(*) AS total_funds
+FROM fund_master
+GROUP BY category
+ORDER BY total_funds DESC;
+
+-- 4. Direct vs Regular Plans
+SELECT
+    plan,
+    COUNT(*) AS total_funds
+FROM fund_master
+GROUP BY plan;
+
+-- 5. Top 10 Funds by AUM
+SELECT
+    scheme_name,
+    fund_house,
+    category,
+    aum_crore
+FROM scheme_performance
+ORDER BY aum_crore DESC
+LIMIT 10;
+
+-- 6. Top 10 Funds by 3-Year Return
+SELECT
+    scheme_name,
+    return_3yr_pct
+FROM scheme_performance
+ORDER BY return_3yr_pct DESC
+LIMIT 10;
+
+-- 7. Average Expense Ratio by Category
+SELECT
+    category,
+    ROUND(AVG(expense_ratio_pct),2) AS avg_expense_ratio
+FROM scheme_performance
+GROUP BY category
+ORDER BY avg_expense_ratio DESC;
+
+-- 8. Risk Category Distribution
+SELECT
+    risk_grade,
+    COUNT(*) AS total_funds
+FROM scheme_performance
+GROUP BY risk_grade
+ORDER BY total_funds DESC;
+
+-- 9. Top 5 Categories by Average 3-Year Return
+SELECT
+    category,
+    ROUND(AVG(return_3yr_pct),2) AS avg_return
+FROM scheme_performance
+GROUP BY category
+ORDER BY avg_return DESC
+LIMIT 5;
+
+-- 10. Fund House Wise Total Schemes
+SELECT
+    fund_house,
+    COUNT(*) AS total_schemes
+FROM fund_master
+GROUP BY fund_house
+ORDER BY total_schemes DESC;
+
+-- 11. Top 10 Investors by Profit
+SELECT
+    investor_id,
+    SUM(amount_inr) AS total_investment
+FROM investor_transactions
+GROUP BY investor_id
+ORDER BY total_investment DESC
+LIMIT 10;
+
+-- 12. Buy vs Sell Transactions
+SELECT
+    transaction_type,
+    COUNT(*) AS total_transactions
+FROM investor_transactions
+GROUP BY transaction_type;
+
+-- 13. Average Leverage Used
+SELECT
+    ROUND(AVG(amount_inr),2) AS average_investment
+FROM investor_transactions;
+
+-- 14. Monthly SIP Trend
+SELECT
+    month,
+    sip_inflow_crore
+FROM monthly_sip_inflows
+ORDER BY month;
+
+-- 15. Highest Monthly SIP
+SELECT *
+FROM monthly_sip_inflows
+ORDER BY sip_inflow_crore DESC
+LIMIT 1;</sql><current_tab id="0"/></tab_sql></sqlb_project>
