@@ -1,0 +1,16 @@
+risk_category,scheme_name,Sharpe_Ratio
+High,Mirae Asset Tax Saver Fund - Regular - Growth,1.2349300257743292
+High,ICICI Pru Midcap Fund - Regular - Growth,1.1801011976606497
+High,DSP Midcap Fund - Regular - Growth,1.1321218524747252
+Low,ICICI Pru Liquid Fund - Regular - Growth,0.495723392953312
+Low,Kotak Liquid Fund - Regular - Growth,-0.0887472962155728
+Low,SBI Magnum Gilt Fund - Regular Plan - Growth,-0.2265753866279156
+Moderate,Mirae Asset Large Cap Fund - Regular - Growth,1.4482911703262604
+Moderate,SBI Bluechip Fund - Regular Plan - Growth,1.2082665673727178
+Moderate,Nippon India Large Cap Fund - Regular - Growth,1.0816591793457038
+Moderately High,Kotak Flexicap Fund - Regular - Growth,1.306743969542841
+Moderately High,Mirae Asset Emerging Bluechip Fund - Regular - Growth,0.926287346736014
+Moderately High,ICICI Pru Value Discovery Fund - Regular - Growth,0.6488787755249528
+Very High,DSP Small Cap Fund - Regular - Growth,0.949795824661604
+Very High,SBI Small Cap Fund - Regular Plan - Growth,0.9453082575156092
+Very High,Nippon India Small Cap Fund - Regular - Growth,0.4484340089089915
