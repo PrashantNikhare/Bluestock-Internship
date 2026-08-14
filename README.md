@@ -61,13 +61,13 @@ Bluestock project/
 Clone the repository
 
 ```bash
-git clone https://github.com/PrashantNikhare/Bluestock-Internship
+git clone https://github.com/PrashantNikhare/Bluestock-Internship.git
 ```
 
 Go to project folder
 
 ```bash
-cd Bluestock project
+cd Bluestock-Internship
 ```
 
 Install dependencies
@@ -184,9 +184,8 @@ Prashant Nikhare
 
 Data Analytics Intern
 
-Bluestock Mutual Fund Analytics Capstone
-
-GitHub : https://github.com/PrashantNikhare/Bluestock-Internship
+GitHub:
+https://github.com/PrashantNikhare/Bluestock-Internship
 
 ## License
 
