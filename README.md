@@ -1,99 +1,193 @@
-# Bluestock Fintech Internship
+# Bluestock Mutual Fund Analytics Capstone
 
-## Mutual Fund Analytics Project
+## Project Overview
 
-### Completed Work
+This project is a complete Mutual Fund Analytics solution developed using Python, SQLite, SQL, and Power BI.
 
-### Day 1 - Data Ingestion & Validation
-- Created project folder structure
-- Initialized Git repository
-- Installed required Python libraries
-- Loaded all CSV datasets
-- Fetched Live NAV data from MFAPI
-- Explored Fund Master dataset
-- Validated AMFI Codes
-- Performed Data Quality Checks
+The project covers the complete data analytics workflow starting from raw data collection to dashboard development.
 
-### Day 2 - Data Cleaning
-- Cleaned all 10 datasets
-- Removed duplicate records
-- Handled missing values
-- Standardized column names
-- Converted data types
-- Saved cleaned datasets in `data/processed`
+The main objective is to analyse mutual fund performance, investor behaviour, SIP trends, portfolio allocation, and financial risk using different analytical techniques.
 
-### Day 2 - SQLite & SQL
-- Created SQLite Database
-- Imported cleaned datasets
-- Wrote SQL queries
-- Performed business analysis using SQL
+## Features
 
-### Day 3 - Exploratory Data Analysis (EDA)
-- Dataset overview
-- Missing value analysis
-- Duplicate analysis
-- Summary statistics
-- Category analysis
-- Risk category analysis
-- NAV trend analysis
-- Expense ratio analysis
-- Created and saved visualization charts
+- ETL Pipeline using Python
+- Data Cleaning and Validation
+- SQLite Database
+- SQL Queries
+- Exploratory Data Analysis (EDA)
+- Financial Performance Metrics
+- Power BI Dashboard
+- Advanced Analytics
+- Mutual Fund Recommendation System
 
----
-
-# Project Structure
-
-```text
-Bluestock Project/
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── database/
-│
-├── dashboard/
-│
-├── reports/
-│   └── figures/
-│
-├── scripts/
-│
-├── sql/
-│
-├── notebooks/
-│
-├── requirements.txt
-├── README.md
-└── .gitignore
-```
-
----
-
-# Technologies Used
+## Technology Stack
 
 - Python
 - Pandas
-- Matplotlib
+- NumPy
 - SQLite
 - SQL
-- Git
+- Matplotlib
+- Power BI
+- Jupyter Notebook
 - VS Code
 
----
+## Folder Structure
 
-# Project Workflow
+```text
+Bluestock project/
+│
+├── archive/
+├── dashboard/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── database/
+├── notebooks/
+├── reports/
+│   └── figures/
+├── scripts/
+├── sql/
+│
+├── data_ingestion.py
+├── live_nav_fetch.py
+├── fund_master_analysis.py
+├── README.md
+├── requirements.txt
+```
 
-1. Data Ingestion
-2. Data Cleaning
-3. SQL Database Creation
-4. SQL Analysis
-5. Exploratory Data Analysis
-6. Data Visualization
-7. Power BI Dashboard *(In Progress)*
+## Installation
 
----
+Clone the repository
 
-# Author
+```bash
+git clone https://github.com/PrashantNikhare/Bluestock-Internship
+```
 
-**Prashant Nikhare**
+Go to project folder
+
+```bash
+cd Bluestock project
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+## How to Run
+
+### Run ETL Pipeline
+
+```bash
+python data_ingestion.py
+```
+
+### Clean Data
+
+```bash
+python scripts/clean_data.py
+```
+
+### Load Data into SQLite
+
+```bash
+python scripts/load_to_sqlite.py
+```
+
+### Generate Analysis
+
+```bash
+python fund_master_analysis.py
+```
+
+### Fetch Live NAV
+
+```bash
+python live_nav_fetch.py
+```
+
+### Run Recommendation System
+
+```bash
+python scripts/recommender.py
+```
+
+## Project Outputs
+
+The project generates the following outputs:
+
+- Cleaned CSV files
+- SQLite Database
+- Financial Performance Metrics
+- EDA Charts
+- Power BI Dashboard
+- Final Report
+- Project Presentation
+
+
+## Dashboard Preview
+
+The Power BI dashboard contains four interactive pages.
+
+- Industry Overview
+- Fund Performance
+- Investor Analytics
+- SIP & Market Trends
+
+Dashboard File
+
+```text
+dashboard/bluestock_mf_dashboard.pbix
+```
+
+## Datasets Used
+
+- Fund Master
+- NAV History
+- AUM by Fund House
+- Monthly SIP Inflows
+- Category Inflows
+- Industry Folio Count
+- Scheme Performance
+- Investor Transactions
+- Portfolio Holdings
+- Benchmark Indices
+
+## Project Workflow
+
+```text
+Raw CSV Files
+      │
+      ▼
+Data Cleaning
+      │
+      ▼
+SQLite Database
+      │
+      ▼
+EDA
+      │
+      ▼
+Performance Analytics
+      │
+      ▼
+Power BI Dashboard
+      │
+      ▼
+Final Report
+```
+
+## Author
+
+Prashant Nikhare
+
+Data Analytics Intern
+
+Bluestock Mutual Fund Analytics Capstone
+
+GitHub : https://github.com/PrashantNikhare/Bluestock-Internship
+
+## License
+
+This project was developed for academic and internship learning purposes.
